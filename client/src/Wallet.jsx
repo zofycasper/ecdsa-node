@@ -22,14 +22,14 @@ function Wallet({ address, setAddress, balance, setBalance }) {
             <h1>Your Wallet</h1>
 
             <label>
-                Wallet Address
+                Signature
                 <input
-                    placeholder="Type an address, for example: 0x1"
+                    placeholder="Enter the signature"
                     value={address}
                     onChange={onChange}
                 ></input>
             </label>
-
+            <div className="balance">Wallet address: {balance}</div>
             <div className="balance">Balance: {balance}</div>
         </div>
     );

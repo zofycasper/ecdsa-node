@@ -37,10 +37,13 @@ console.log(`Message hash: ${toHex(messageHash)}`);
 
 async function signMessage(messageHash, privateKey) {
     const signature = await secp256k1.sign(messageHash, privateKey);
-    console.log(signature);
+    return signature;
+    // console.log(signature);
 
-    const isSigned = secp256k1.verify(signature, messageHash, publicKey);
-    console.log(isSigned);
+    // const isSigned = secp256k1.verify(signature, messageHash, publicKey);
+    // console.log(isSigned);
 }
 
-signMessage(messageHash, privateKey);
+async function recoverKey(messageHash, signature) {
+    return secp256k1.recoverPublicKey(messageHash, signature);
+}
